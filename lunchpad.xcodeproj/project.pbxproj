@@ -6,8 +6,45 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		526BFE5E17028FFD0010D3C3 /* lunchpad.c in Sources */ = {isa = PBXBuildFile; fileRef = 526BFE5D17028FFD0010D3C3 /* lunchpad.c */; };
+		526BFE61170290340010D3C3 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526BFE60170290340010D3C3 /* CoreMIDI.framework */; };
+		526BFE691702ADFB0010D3C3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 526BFE681702ADFB0010D3C3 /* main.c */; };
+		526BFE721702AEA40010D3C3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526BFE711702AEA40010D3C3 /* CoreFoundation.framework */; };
+		526BFE731702AEB80010D3C3 /* liblunchpad.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 526BFE5617028F4F0010D3C3 /* liblunchpad.dylib */; };
+		526BFE741702AEC80010D3C3 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526BFE711702AEA40010D3C3 /* CoreFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		526BFE6F1702AE1C0010D3C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 526BFE4E17028F4F0010D3C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 526BFE5517028F4F0010D3C3;
+			remoteInfo = lunchpad;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		526BFE641702ADFB0010D3C3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		526BFE5617028F4F0010D3C3 /* liblunchpad.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = liblunchpad.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		526BFE5D17028FFD0010D3C3 /* lunchpad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lunchpad.c; sourceTree = "<group>"; };
+		526BFE5F1702900B0010D3C3 /* lunchpad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lunchpad.h; sourceTree = "<group>"; };
+		526BFE60170290340010D3C3 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		526BFE661702ADFB0010D3C3 /* lunchpadtest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lunchpadtest; sourceTree = BUILT_PRODUCTS_DIR; };
+		526BFE681702ADFB0010D3C3 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		526BFE711702AEA40010D3C3 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -15,6 +52,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526BFE721702AEA40010D3C3 /* CoreFoundation.framework in Frameworks */,
+				526BFE61170290340010D3C3 /* CoreMIDI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		526BFE631702ADFB0010D3C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				526BFE731702AEB80010D3C3 /* liblunchpad.dylib in Frameworks */,
+				526BFE741702AEC80010D3C3 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -24,7 +72,12 @@
 		526BFE4D17028F4F0010D3C3 = {
 			isa = PBXGroup;
 			children = (
+				526BFE5F1702900B0010D3C3 /* lunchpad.h */,
+				526BFE5D17028FFD0010D3C3 /* lunchpad.c */,
+				526BFE671702ADFB0010D3C3 /* lunchpadtest */,
 				526BFE5717028F4F0010D3C3 /* Products */,
+				526BFE711702AEA40010D3C3 /* CoreFoundation.framework */,
+				526BFE60170290340010D3C3 /* CoreMIDI.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -32,8 +85,17 @@
 			isa = PBXGroup;
 			children = (
 				526BFE5617028F4F0010D3C3 /* liblunchpad.dylib */,
+				526BFE661702ADFB0010D3C3 /* lunchpadtest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		526BFE671702ADFB0010D3C3 /* lunchpadtest */ = {
+			isa = PBXGroup;
+			children = (
+				526BFE681702ADFB0010D3C3 /* main.c */,
+			);
+			path = lunchpadtest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -66,6 +128,24 @@
 			productReference = 526BFE5617028F4F0010D3C3 /* liblunchpad.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
+		526BFE651702ADFB0010D3C3 /* lunchpadtest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 526BFE6C1702ADFB0010D3C3 /* Build configuration list for PBXNativeTarget "lunchpadtest" */;
+			buildPhases = (
+				526BFE621702ADFB0010D3C3 /* Sources */,
+				526BFE631702ADFB0010D3C3 /* Frameworks */,
+				526BFE641702ADFB0010D3C3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				526BFE701702AE1C0010D3C3 /* PBXTargetDependency */,
+			);
+			name = lunchpadtest;
+			productName = lunchpadtest;
+			productReference = 526BFE661702ADFB0010D3C3 /* lunchpadtest */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -88,6 +168,7 @@
 			projectRoot = "";
 			targets = (
 				526BFE5517028F4F0010D3C3 /* lunchpad */,
+				526BFE651702ADFB0010D3C3 /* lunchpadtest */,
 			);
 		};
 /* End PBXProject section */
@@ -97,10 +178,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526BFE5E17028FFD0010D3C3 /* lunchpad.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		526BFE621702ADFB0010D3C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				526BFE691702ADFB0010D3C3 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		526BFE701702AE1C0010D3C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 526BFE5517028F4F0010D3C3 /* lunchpad */;
+			targetProxy = 526BFE6F1702AE1C0010D3C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		526BFE5817028F4F0010D3C3 /* Debug */ = {
@@ -176,6 +274,20 @@
 			};
 			name = Release;
 		};
+		526BFE6D1702ADFB0010D3C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		526BFE6E1702ADFB0010D3C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -195,6 +307,16 @@
 				526BFE5C17028F4F0010D3C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		526BFE6C1702ADFB0010D3C3 /* Build configuration list for PBXNativeTarget "lunchpadtest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				526BFE6D1702ADFB0010D3C3 /* Debug */,
+				526BFE6E1702ADFB0010D3C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
