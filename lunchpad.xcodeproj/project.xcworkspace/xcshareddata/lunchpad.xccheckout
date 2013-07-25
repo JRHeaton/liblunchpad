@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>50DA8B90-7FF7-4E92-8202-68C422B4B015</string>
+	<key>IDESourceControlProjectName</key>
+	<string>lunchpad</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5944B919-C7A7-48CE-8BB3-7CD6ABAEB323</key>
+		<string>https://github.com/Gojohnnyboi/liblunchpad.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>lunchpad.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5944B919-C7A7-48CE-8BB3-7CD6ABAEB323</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Gojohnnyboi/liblunchpad.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5944B919-C7A7-48CE-8BB3-7CD6ABAEB323</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5944B919-C7A7-48CE-8BB3-7CD6ABAEB323</string>
+			<key>IDESourceControlWCCName</key>
+			<string>liblunchpad</string>
+		</dict>
+	</array>
+</dict>
+</plist>

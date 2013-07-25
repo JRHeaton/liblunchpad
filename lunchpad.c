@@ -98,7 +98,8 @@ int _lp_is_launchpad(MIDIDeviceRef d) {
     CFStringRef name;
     
     MIDIObjectGetStringProperty(d, kMIDIPropertyName, &name);
-    if(CFStringCompare(CFSTR("Launchpad"), name, kCFCompareCaseInsensitive) == kCFCompareEqualTo)
+
+    if(CFStringFind(name, CFSTR("Launchpad"), kCFCompareCaseInsensitive).length > 0)
         return 1;
     
     return 0;
