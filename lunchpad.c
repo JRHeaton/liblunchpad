@@ -193,6 +193,62 @@ int lp_activate_entire_grid_v(lp_device_t device, uint8_t velocity) {
     return 0;
 }
 
+int lp_s_start_scrolling_text_v(lp_device_t device, lp_scrolling_text_fragment *fragments, int fragment_count, uint8_t velocity, int loop) {
+    if(!lp_is_new_launchpad_s(device))
+        return -1;
+    
+    size_t full_text_len = 0;
+    for(int i=0;i<fragment_count;++i) {
+        lp_scrolling_text_fragment f = fragments[i];
+        
+        full_text_len += strlen(f.text);
+    }
+    
+    size_t full_buf_len = 7 + full_text_len + fragment_count;
+    uint8_t *buf = calloc(1, full_buf_len);
+    
+    // sysex shit
+    buf[0] = 0xf0;
+    buf[1] = 0x00;
+    buf[2] = 0x20;
+    buf[3] = 0x29;
+    buf[4] = 0x09;
+    
+    if(loop)
+        velocity |= 0x40; // loop bit
+    buf[5] = velocity;
+    
+#define _fix_spd(s) (s > 7 ? 7 : (s < 1 ? 1 : s))
+    
+    int cind = 6;
+    
+    for(int i=0;i<fragment_count;++i) {
+        lp_scrolling_text_fragment f = fragments[i];
+        
+        buf[cind] = _fix_spd(f.speed);
+        strcpy((void *)&buf[cind+1], f.text);
+        
+        cind += strlen(f.text) + 1;
+    }
+    
+    buf[6 + full_text_len + fragment_count] = 0xf7;
+    
+    return lp_send_midi_msg(device, buf, full_buf_len);
+}
+
+int lp_s_stop_scrolling_text(lp_device_t device) {
+    uint8_t buf[6];
+    
+    buf[0] = 0xf0;
+    buf[1] = 0x00;
+    buf[2] = 0x20;
+    buf[3] = 0x29;
+    buf[4] = 0x09;
+    buf[5] = 0xf7;
+    
+    return lp_send_midi_msg(device, buf, 6);
+}
+
 int lp_deactivate_entire_grid(lp_device_t device) {
     lp_midi_msg_t msg;
     

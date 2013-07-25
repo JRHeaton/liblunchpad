@@ -48,6 +48,17 @@ int lp_activate_top_pad_v(lp_device_t device, int index, uint8_t velocity); // 0
 int lp_deactivate_top_pad(lp_device_t device, int index);
 
 
+// text (launchpad [s] only)
+typedef struct {
+    const char *text;
+    int speed; // 1-7
+} lp_scrolling_text_fragment;
+#define lp_stf(text, spd) (lp_scrolling_text_fragment) { text, spd }
+
+int lp_s_start_scrolling_text_v(lp_device_t device, lp_scrolling_text_fragment *fragments, int fragment_count, uint8_t velocity, int loop/*bool*/); // speed range 1 to 7
+int lp_s_stop_scrolling_text(lp_device_t device);
+
+
 // misc
 int lp_send_reset(lp_device_t device);
 void lp_device_enable_feedback(lp_device_t device); // default is 127 velocity (bright yellow) ********* will only work for 8x8 grid, others you do manually
