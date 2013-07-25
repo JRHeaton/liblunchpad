@@ -29,13 +29,15 @@ void msg_cb(lp_device_t d, uint8_t data[256]) {
 
 int main(int argc, const char * argv[]) {
     lp_device_t d = lp_get_device();
-    lp_set_msg_cb(msg_cb);
-    lp_enable_msg_cb(d);
+//    lp_set_msg_cb(msg_cb);
+//    lp_enable_msg_cb(d);
     
-    lp_device_set_feedback_v(d, 31);
-    lp_device_enable_feedback(d);
+//    lp_device_set_feedback_v(d, 31);
+//    lp_device_enable_feedback(d);
     
-    lp_activate_entire_grid_v(d, 127);
+//    lp_activate_entire_grid_v(d, 127);
+    
+    
     
     CFRunLoopRun();
 }

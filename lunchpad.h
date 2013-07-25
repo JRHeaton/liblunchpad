@@ -31,6 +31,8 @@ void lp_set_msg_cb(void (*msg_cb)(lp_device_t device, uint8_t data[256]));
 void lp_enable_msg_cb(lp_device_t device);
 void lp_disable_msg_cb(lp_device_t device);
 
+int lp_is_new_launchpad_s(lp_device_t device);
+
 
 // midi messages (outgoing). 0 == success
 int lp_send_midi_msg(lp_device_t device, uint8_t data[256], size_t len);

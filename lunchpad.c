@@ -21,6 +21,7 @@ struct _lp_device {
     int fb_enabled;
     uint8_t red, green, velocity, type;
     uint8_t state[8][8];
+    int is_lps;
 #define _LPCOLOR 1
 #define _LPVEL 0
 };
@@ -44,6 +45,7 @@ lp_device_t _lp_create_device(MIDIDeviceRef d, MIDIEndpointRef dest, int msg_cb_
     lp->fb_enabled = 0;
     lp->red = lp->green = lp->type = 0;
     lp->velocity = 127;
+    lp->is_lps = 0;
     
     return lp;
 }
@@ -96,13 +98,16 @@ void _lp_ctx_create() {
 
 int _lp_is_launchpad(MIDIDeviceRef d) {
     CFStringRef name;
-    
     MIDIObjectGetStringProperty(d, kMIDIPropertyName, &name);
 
-    if(CFStringFind(name, CFSTR("Launchpad"), kCFCompareCaseInsensitive).length > 0)
-        return 1;
+    return CFStringFind(name, CFSTR("Launchpad"), kCFCompareCaseInsensitive).length > 0;
+}
+
+void _lp_set_is_s(lp_device_t d) {
+    CFStringRef name;
+    MIDIObjectGetStringProperty(d->device, kMIDIPropertyName, &name);
     
-    return 0;
+    d->is_lps = CFStringFind(name, CFSTR("Launchpad S"), kCFCompareCaseInsensitive).length > 0;
 }
 
 int _lp_is_device_online(MIDIDeviceRef d) {
@@ -111,6 +116,10 @@ int _lp_is_device_online(MIDIDeviceRef d) {
     MIDIObjectGetIntegerProperty(d, kMIDIPropertyOffline, &offline);
         
     return !offline;
+}
+
+int lp_is_new_launchpad_s(lp_device_t device) {
+    return device->is_lps;
 }
 
 lp_device_t lp_get_device() {
@@ -128,6 +137,9 @@ lp_device_t lp_get_device() {
         
         lp_device_t device = _lp_create_device(d, dest, 0);
         MIDIPortConnectSource(_lp_ctx.inport, source, device);
+        
+        _lp_set_is_s(device);
+        lp_send_reset(device);
         
         return device;
     }
